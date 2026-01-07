@@ -1,29 +1,24 @@
 [Para PT-BR, clique aqui](#índice)
 
-# ☸️ Kubernetes Native ELK Stack (Log Observability)
-
-![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
-![ElasticSearch](https://img.shields.io/badge/-ElasticSearch-005571?style=for-the-badge&logo=elasticsearch)
-![Kibana](https://img.shields.io/badge/-Kibana-005571?style=for-the-badge&logo=kibana)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+# Kubernetes Native ELK Stack (Log Observability)
 
 ## Index
 
-- [📋 About the Project](#-about-the-project)
-- [🏗️ Architecture and Data Flow](#architecture)
-- [🐳 Implementation 1: Docker (Local/Legacy)](#-implementation-1-docker-locallegacy)
-- [☸️ Implementation 2: Kubernetes (Cloud Native)](#kubernetes)
+- [About the Project](#-about-the-project)
+- [Architecture and Data Flow](#architecture)
+- [Implementation 1: Docker (Local/Legacy)](#-implementation-1-docker-locallegacy)
+- [Implementation 2: Kubernetes (Cloud Native)](#kubernetes)
   - [1. Security and Access (rbac.yaml)](#1-security-and-access-rbacyaml)
   - [2. The Collector Agent (filebeat-daemonset.yaml)](#2-the-collector-agent-filebeat-daemonsetyaml)
   - [3. Database (elasticsearch.yaml)](#3-database-elasticsearchyaml)
   - [4. Application (nginx-app.yaml)](#4-application-nginx-appyaml)
   - [5. Interface (kibana.yaml)](#5-interface-kibanayaml)
-- [🚀 How to run](#-how-to-run)
-- [🧪 Validation: Chaos Testing](#-validation-chaos-testing)
-- [📂 File Structure](#-file-structure)
+- [How to run](#-how-to-run)
+- [Validation: Chaos Testing](#-validation-chaos-testing)
+- [File Structure](#-file-structure)
 - [Detailed Data Flow](#detailed-data-flow)
 
-## 📋 About the Project
+## About the Project
 
 This project implements a complete **Log Observability** solution running natively on Kubernetes.
 
@@ -32,7 +27,7 @@ The goal is to demonstrate the collection, processing and visualization of distr
 ---
 
 <a name="architecture"></a>
-## 🏗️ Architecture and Data Flow
+## Architecture and Data Flow
 
 The architecture follows the **Log Harvesting** pattern using DaemonSets to ensure that each cluster node has a log collector.
 
@@ -49,7 +44,7 @@ graph LR
     User((DevOps)) -- "Browser (5601)" --> Kibana
 ```
 
-## 🐳 Implementation 1: Docker (Local/Legacy)
+## Implementation 1: Docker (Local/Legacy)
 
 The initial version of the project uses `docker-compose` to understand the basic components.
 
@@ -67,7 +62,7 @@ The initial version of the project uses `docker-compose` to understand the basic
 4. **Visualization:** The container `kibana` accesses elasticsearch to display data in the browser.
 
 <a name="kubernetes"></a>
-## ☸️ Implementation 2: Kubernetes (Cloud Native)
+## Implementation 2: Kubernetes (Cloud Native)
 
 The evolution of the project to Kubernetes introduces orchestration, security and service discovery concepts. Below are the technical details of each manifest:
 
@@ -105,7 +100,7 @@ The evolution of the project to Kubernetes introduces orchestration, security an
 
 - **Exposition:** A `LoadBalancer` Service opens the external port `5601`, allowing dashboard access via browser.
 
-## 🚀 How to run
+## How to run
 
 ### Prerequisits
 
@@ -143,7 +138,7 @@ Wait for the pods to reach `Running` status:
 kubectl get pods -w
 ```
 
-## 🧪 Validation: Chaos Testing
+## Validation: Chaos Testing
 
 To prove the architecture's resilience, I performed a manual failure test:
 
@@ -159,7 +154,7 @@ kubectl delete pod -l app=nginx
 
 <img width="1118" height="680" alt="image" src="https://github.com/user-attachments/assets/54d58bf9-9e6e-401c-b7f6-60b1f2813bbb" />
 
-## 📂 File Structure
+## File Structure
 ```text
 .
 ├── docker/                 # Legacy files (docker-compose)
@@ -241,21 +236,21 @@ PT-BR
 
 ## Índice
 
-- [📋 Sobre o Projeto](#-sobre-o-projeto)
-- [🏗️ Arquitetura e Fluxo de Dados](#arquitetura)
-- [🐳 Implementação 1: Docker (Local/Legacy)](#-implementação-1-docker-locallegacy)
-- [☸️ Implementação 2: Kubernetes (Cloud Native)](#kubernetes2)
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Arquitetura e Fluxo de Dados](#arquitetura)
+- [Implementação 1: Docker (Local/Legacy)](#-implementação-1-docker-locallegacy)
+- [Implementação 2: Kubernetes (Cloud Native)](#kubernetes2)
   - [1. Segurança e Acesso (rbac.yaml)](#1-segurança-e-acesso-rbacyaml)
   - [2. O Agente Coletor (filebeat-daemonset.yaml)](#2-o-agente-coletor-filebeat-daemonsetyaml)
   - [3. Banco de Dados (elasticsearch.yaml)](#3-banco-de-dados-elasticsearchyaml)
   - [4. Aplicação (nginx-app.yaml)](#4-aplicação-nginx-appyaml)
   - [5. Interface (kibana.yaml)](#5-inter-face-kibanayaml)
-- [🚀 Como Rodar](#-como-rodar)
-- [🧪 Validação: Teste de Caos](#-validação-teste-de-caos)
-- [📂 Estrutura de Arquivos](#-estrutura-de-arquivos)
+- [Como Rodar](#-como-rodar)
+- [Validação: Teste de Caos](#-validação-teste-de-caos)
+- [Estrutura de Arquivos](#-estrutura-de-arquivos)
 - [Fluxo de dados](#fluxo-de-dados)
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
 Este projeto implementa uma solução completa de **Observabilidade de Logs** rodando nativamente em Kubernetes.
 
@@ -264,7 +259,7 @@ O objetivo é demonstrar a coleta, processamento e visualização de logs de apl
 ---
 
 <a name="arquitetura"></a>
-## 🏗️ Arquitetura e Fluxo de Dados
+## Arquitetura e Fluxo de Dados
 
 A arquitetura segue o padrão de **Log Harvesting** utilizando DaemonSets para garantir que cada nó do cluster tenha um coletor de logs.
 
@@ -281,7 +276,7 @@ graph LR
     User((DevOps)) -- "Browser (5601)" --> Kibana
 ```
 
-## 🐳 Implementação 1: Docker (Local/Legacy)
+## Implementação 1: Docker (Local/Legacy)
 
 A versão inicial do projeto utiliza `docker-compose` para entendimento dos componentes básicos.
 
@@ -299,7 +294,7 @@ A versão inicial do projeto utiliza `docker-compose` para entendimento dos comp
 4. **Visualização:** O container `kibana` acessa o elasticsearch para exibir os dados no navegador.
 
 <a name="kubernetes2"></a>
-## ☸️ Implementação 2: Kubernetes (Cloud Native)
+## Implementação 2: Kubernetes (Cloud Native)
 
 A evolução do projeto para Kubernetes introduz conceitos de orquestração, segurança e service discovery. Abaixo, o detalhamento técnico de cada manifesto:
 
@@ -337,7 +332,7 @@ A evolução do projeto para Kubernetes introduz conceitos de orquestração, se
 
 - **Exposição:** Um Service do tipo `LoadBalancer` abre a porta externa `5601`, permitindo acesso ao dashboard via navegador.
 
-## 🚀 Como Rodar
+## Como Rodar
 
 ### Pré-requisitos
 
@@ -375,7 +370,7 @@ Aguarde os pods ficarem `Running`:
 kubectl get pods -w
 ```
 
-## 🧪 Validação: Teste de Caos
+## Validação: Teste de Caos
 
 Para provar a resiliência da arquitetura, realizei um teste de falha manual:
 
@@ -391,7 +386,7 @@ kubectl delete pod -l app=nginx
 
 <img width="1118" height="680" alt="image" src="https://github.com/user-attachments/assets/341a5cb8-9415-4cdc-9d04-b2b8b5a36e82" />
 
-## 📂 Estrutura de Arquivos
+## Estrutura de Arquivos
 ```text
 .
 ├── docker/                 # Arquivos legado (docker-compose)
