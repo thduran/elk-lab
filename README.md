@@ -143,8 +143,6 @@ Wait for the pods to reach `Running` status:
 kubectl get pods -w
 ```
 
-<img width="1118" height="680" alt="image" src="https://github.com/user-attachments/assets/54d58bf9-9e6e-401c-b7f6-60b1f2813bbb" />
-
 ## 🧪 Validation: Chaos Testing
 
 To prove the architecture's resilience, I performed a manual failure test:
@@ -158,6 +156,8 @@ kubectl delete pod -l app=nginx
 3. **Result:**
 - Kubernetes immediatly provisions a new pod.
 - In **Kibana** (`http://localhost:5601`), filtering by `kubernetes.pod.name`, you'll see old the pod's logs stop and the new pod's logs start instantly, with no data loss.
+
+<img width="1118" height="680" alt="image" src="https://github.com/user-attachments/assets/54d58bf9-9e6e-401c-b7f6-60b1f2813bbb" />
 
 ## 📂 File Structure
 ```text
@@ -375,9 +375,6 @@ Aguarde os pods ficarem `Running`:
 kubectl get pods -w
 ```
 
-<img width="1118" height="680" alt="image" src="https://github.com/user-attachments/assets/341a5cb8-9415-4cdc-9d04-b2b8b5a36e82" />
-
-
 ## 🧪 Validação: Teste de Caos
 
 Para provar a resiliência da arquitetura, realizei um teste de falha manual:
@@ -391,6 +388,8 @@ kubectl delete pod -l app=nginx
 3. **Resultado:**
 - O Kubernetes sobe um novo pod imediatamente.
 - No **Kibana** (`http://localhost:5601`), ao filtrar por `kubernetes.pod.name`, você verá os logs do pod antigo cessarem e os do novo pod começarem instantaneamente, sem perda de dados.
+
+<img width="1118" height="680" alt="image" src="https://github.com/user-attachments/assets/341a5cb8-9415-4cdc-9d04-b2b8b5a36e82" />
 
 ## 📂 Estrutura de Arquivos
 ```text
