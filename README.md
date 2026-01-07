@@ -4,18 +4,18 @@
 
 ## Index
 
-- [About the Project](#-about-the-project)
+- [About the Project](#about-the-project)
 - [Architecture and Data Flow](#architecture)
-- [Implementation 1: Docker (Local/Legacy)](#-implementation-1-docker-locallegacy)
+- [Implementation 1: Docker (Local/Legacy)](#implementation-1-docker-locallegacy)
 - [Implementation 2: Kubernetes (Cloud Native)](#kubernetes)
   - [1. Security and Access (rbac.yaml)](#1-security-and-access-rbacyaml)
   - [2. The Collector Agent (filebeat-daemonset.yaml)](#2-the-collector-agent-filebeat-daemonsetyaml)
   - [3. Database (elasticsearch.yaml)](#3-database-elasticsearchyaml)
   - [4. Application (nginx-app.yaml)](#4-application-nginx-appyaml)
   - [5. Interface (kibana.yaml)](#5-interface-kibanayaml)
-- [How to run](#-how-to-run)
-- [Validation: Chaos Testing](#-validation-chaos-testing)
-- [File Structure](#-file-structure)
+- [How to run](#how-to-run)
+- [Validation: Chaos Testing](#validation-chaos-testing)
+- [File Structure](#file-structure)
 - [Detailed Data Flow](#detailed-data-flow)
 
 ## About the Project
@@ -236,18 +236,18 @@ PT-BR
 
 ## Índice
 
-- [Sobre o Projeto](#-sobre-o-projeto)
+- [Sobre o Projeto](#sobre-o-projeto)
 - [Arquitetura e Fluxo de Dados](#arquitetura)
-- [Implementação 1: Docker (Local/Legacy)](#-implementação-1-docker-locallegacy)
+- [Implementação 1: Docker (Local/Legacy)](#implementação-1-docker-locallegacy)
 - [Implementação 2: Kubernetes (Cloud Native)](#kubernetes2)
   - [1. Segurança e Acesso (rbac.yaml)](#1-segurança-e-acesso-rbacyaml)
   - [2. O Agente Coletor (filebeat-daemonset.yaml)](#2-o-agente-coletor-filebeat-daemonsetyaml)
   - [3. Banco de Dados (elasticsearch.yaml)](#3-banco-de-dados-elasticsearchyaml)
   - [4. Aplicação (nginx-app.yaml)](#4-aplicação-nginx-appyaml)
   - [5. Interface (kibana.yaml)](#5-inter-face-kibanayaml)
-- [Como Rodar](#-como-rodar)
-- [Validação: Teste de Caos](#-validação-teste-de-caos)
-- [Estrutura de Arquivos](#-estrutura-de-arquivos)
+- [Como Rodar](#como-rodar)
+- [Validação: Teste de Caos](#validação-teste-de-caos)
+- [Estrutura de Arquivos](#estrutura-de-arquivos)
 - [Fluxo de dados](#fluxo-de-dados)
 
 ## Sobre o Projeto
