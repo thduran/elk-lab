@@ -242,7 +242,7 @@ PT-BR
 - [📋 Sobre o Projeto](#-sobre-o-projeto)
 - [🏗️ Arquitetura e Fluxo de Dados](#arquitetura)
 - [🐳 Implementação 1: Docker (Local/Legacy)](#-implementação-1-docker-locallegacy)
-- [☸️ Implementação 2: Kubernetes (Cloud Native)](#kubernetes)
+- [☸️ Implementação 2: Kubernetes (Cloud Native)](#kubernetes2)
   - [1. Segurança e Acesso (rbac.yaml)](#1-segurança-e-acesso-rbacyaml)
   - [2. O Agente Coletor (filebeat-daemonset.yaml)](#2-o-agente-coletor-filebeat-daemonsetyaml)
   - [3. Banco de Dados (elasticsearch.yaml)](#3-banco-de-dados-elasticsearchyaml)
@@ -296,7 +296,7 @@ A versão inicial do projeto utiliza `docker-compose` para entendimento dos comp
 
 4. **Visualização:** O container `kibana` acessa o elasticsearch para exibir os dados no navegador.
 
-<a name="kubernetes"></a>
+<a name="kubernetes2"></a>
 ## ☸️ Implementação 2: Kubernetes (Cloud Native)
 
 A evolução do projeto para Kubernetes introduz conceitos de orquestração, segurança e service discovery. Abaixo, o detalhamento técnico de cada manifesto:
