@@ -1,0 +1,13 @@
+filebeat.inputs:
+  - type: container # optimized input for docker logs
+    paths:
+      - '/var/lib/docker/containers/*/*.log' # to collect logs from all containers running on the host
+    processors:
+      - add_docker_metadata:
+          host: "unix:///var/run/docker.sock" # enriches logs with metadata (adds containers, images real names)
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"] # processed logs destination
+
+setup.kibana:
+  host: "kibana:5601" # optional: allows filebeat to load standard dashs directly into Kibana

@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+  # Elasticsearch (log database)
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
+    container_name: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - discovery.type=single-node # declares this node operates standalone (no cluster)
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # limits memory to prevent environment crash 
+    ports:
+      - "9200:9200"
+    networks:
+      - elk-net
+
+  # Kibana (visualization)
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.10
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200 # connects to elasticsearch container using service name
+    depends_on:
+      - elasticsearch
+    networks:
+      - elk-net
+
+  # nginx (app/log generator)
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    ports:
+      - "8080:80"
+    labels:
+      co.elastic.logs/enabled: "true" # flag to filebeat -> tells filebeat to collect logs from this specific container
+    networks:
+      - elk-net
+
+  # Filebeat (the log collector)
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.17.10
+    container_name: filebeat
+    user: root # required to read log files from the host
+    command: ["-e", "--strict.perms=false"] # disable strict permission checks - for lab purposes, not recommended for production
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro # mounts local config file into the container
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro # logs source -> mounts host's docker logs directory into filebeat
+      - /var/run/docker.sock:/var/run/docker.sock:ro # allows filebeat to get containers metadata (names, images, labels)
+    depends_on:
+      - elasticsearch
+    networks:
+      - elk-net
+
+networks:
+  elk-net:
+    driver: bridge

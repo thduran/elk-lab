@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ServiceAccount # user for filebeat. Unlike UserAccounts (for humans), SA are for processes inside the pod
+metadata:
+  name: filebeat
+  namespace: default
+  labels:
+    app: filebeat
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole # not "Role", because filebeat needs to read data from all cluster namespaces
+metadata:
+  name: filebeat
+  labels:
+    app: filebeat
+rules: # defines which actions are allowed
+- apiGroups: [""] # "" represents k8s core (where nodes, pods live)
+  resources: # filebeat needs to read these 3 resources to enrich the logs with real names
+  - namespaces
+  - pods
+  - nodes
+  verbs: # read-only permissions to filebeat
+  - get
+  - watch
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: filebeat
+roleRef: # source of the roles
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: filebeat # points to the ClusterRole created above
+subjects: # who receives the permissions
+- kind: ServiceAccount
+  name: filebeat # points to the SA created above
+  namespace: default
