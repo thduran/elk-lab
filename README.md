@@ -143,6 +143,8 @@ Wait for the pods to reach `Running` status:
 kubectl get pods -w
 ```
 
+<img width="1118" height="680" alt="image" src="https://github.com/user-attachments/assets/54d58bf9-9e6e-401c-b7f6-60b1f2813bbb" />
+
 ## 🧪 Validation: Chaos Testing
 
 To prove the architecture's resilience, I performed a manual failure test:
@@ -372,6 +374,9 @@ Aguarde os pods ficarem `Running`:
 ```bash
 kubectl get pods -w
 ```
+
+<img width="1118" height="680" alt="image" src="https://github.com/user-attachments/assets/341a5cb8-9415-4cdc-9d04-b2b8b5a36e82" />
+
 
 ## 🧪 Validação: Teste de Caos
 
