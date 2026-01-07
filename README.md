@@ -10,9 +10,9 @@
 ## Index
 
 - [📋 About the Project](#-about-the-project)
-- [🏗️ Architecture and Data Flow](#-architecture-and-data-flow)
+- [🏗️ Architecture and Data Flow](#architecture)
 - [🐳 Implementation 1: Docker (Local/Legacy)](#-implementation-1-docker-locallegacy)
-- [☸️ Implementation 2: Kubernetes (Cloud Native)](#-implementation-2-kubernetes-cloud-native)
+- [☸️ Implementation 2: Kubernetes (Cloud Native)](#kubernetes)
   - [1. Security and Access (rbac.yaml)](#1-security-and-access-rbacyaml)
   - [2. The Collector Agent (filebeat-daemonset.yaml)](#2-the-collector-agent-filebeat-daemonsetyaml)
   - [3. Database (elasticsearch.yaml)](#3-database-elasticsearchyaml)
@@ -31,6 +31,7 @@ The goal is to demonstrate the collection, processing and visualization of distr
 
 ---
 
+<a name="architecture"></a>
 ## 🏗️ Architecture and Data Flow
 
 The architecture follows the **Log Harvesting** pattern using DaemonSets to ensure that each cluster node has a log collector.
@@ -65,6 +66,7 @@ The initial version of the project uses `docker-compose` to understand the basic
 
 4. **Visualization:** The container `kibana` accesses elasticsearch to display data in the browser.
 
+<a name="kubernetes"></a>
 ## ☸️ Implementation 2: Kubernetes (Cloud Native)
 
 The evolution of the project to Kubernetes introduces orchestration, security and service discovery concepts. Below are the technical details of each manifest:
@@ -170,7 +172,7 @@ kubectl delete pod -l app=nginx
 
 ---
 
-## Data flow of each file
+## Detailed Data Flow
 
 DOCKER
 
