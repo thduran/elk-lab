@@ -247,7 +247,7 @@ PT-BR
   - [2. O Agente Coletor (filebeat-daemonset.yaml)](#2-o-agente-coletor-filebeat-daemonsetyaml)
   - [3. Banco de Dados (elasticsearch.yaml)](#3-banco-de-dados-elasticsearchyaml)
   - [4. Aplicação (nginx-app.yaml)](#4-aplicação-nginx-appyaml)
-  - [5. Interface (kibana.yaml)](#5-interface-kibanayaml)
+  - [5. Interface (kibana.yaml)](#5-inter-face-kibanayaml)
 - [🚀 Como Rodar](#-como-rodar)
 - [🧪 Validação: Teste de Caos](#-validação-teste-de-caos)
 - [📂 Estrutura de Arquivos](#-estrutura-de-arquivos)
@@ -327,7 +327,7 @@ A evolução do projeto para Kubernetes introduz conceitos de orquestração, se
 
 - **Logging:** Os Pods geram logs em `stdout`, que são capturados silenciosamente pelo Docker no disco do Nó, aguardando a coleta do Filebeat.
 
-### 5. Interface (kibana.yaml)
+### 5. Inter face (kibana.yaml)
 
 - **Conexão:** O Pod inicia, lê a variável `ELASTICSEARCH_URL` e conecta no banco interno.
 
