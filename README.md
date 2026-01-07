@@ -251,7 +251,7 @@ PT-BR
 - [🚀 Como Rodar](#-como-rodar)
 - [🧪 Validação: Teste de Caos](#-validação-teste-de-caos)
 - [📂 Estrutura de Arquivos](#-estrutura-de-arquivos)
-- [Fluxo de dados de cada arquivo](#fluxo-de-dados-de-cada-arquivo)
+- [Fluxo de dados](#fluxo-de-dados-de-cada-arquivo)
 
 ## 📋 Sobre o Projeto
 
@@ -400,7 +400,7 @@ kubectl delete pod -l app=nginx
 
 ---
 
-## Fluxo de dados de cada arquivo
+## Fluxo de dados
 
 DOCKER
 
